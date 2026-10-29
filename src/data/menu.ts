@@ -454,5 +454,5 @@ export const INFO = {
 
 // --- NAYI HERO IMAGE SET KI GAYI HAI ---
 const heroImgKey = Object.keys(images).find(key => key.includes('hero img.'));
-export const HERO_IMG = heroImgKey ? images[heroImgKey] : ""; 
+export const HERO_IMG = getImg("pizzas", "1") || (heroImgKey ? images[heroImgKey] : ""); 
 export const HERO_IMG_2 = getImg("pizzas", "1"); 

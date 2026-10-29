@@ -244,12 +244,12 @@ function ItemCard({
             {item.badge}
           </span>
         )}
-        <div className="h-44 overflow-hidden rounded-t-[9px] border-b-2 border-ink/10 bg-transparent flex items-center justify-center p-1">
+        <div className="h-52 w-full overflow-hidden rounded-t-[9px] border-b-2 border-ink/10 bg-white flex items-center justify-center p-2 relative">
           <img
             src={item.img}
             alt={item.name}
             loading="lazy"
-            className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
         <div className="flex flex-1 flex-col p-4">
@@ -301,12 +301,12 @@ function DealCard({ deal, index, onAdd }: { deal: Deal; index: number; onAdd: (d
           ))}
         </ul>
         
-        <div className="mt-4 h-36 w-full overflow-hidden rounded-lg border border-ink/10 flex items-center justify-center bg-white">
+        <div className="mt-4 h-52 w-full overflow-hidden rounded-lg border border-ink/10 flex items-center justify-center bg-white p-2">
           <img
             src={deal.img}
             alt={`Deal ${deal.no}`}
             loading="lazy"
-            className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
@@ -573,14 +573,12 @@ function Hero({ go }: { go: (t: string) => void }) {
         <div className="relative mx-auto w-fit mt-8 md:mt-0">
           <div className="anim-float relative flex items-center justify-center">
             
-            <div className="anim-spin-slow rounded-full border-[6px] border-dashed border-mustard w-64 h-64 md:w-[22rem] md:h-[22rem] relative overflow-hidden flex items-center justify-center">
-              
+            <div className="anim-spin-slow rounded-full border-[6px] border-dashed border-mustard w-64 h-64 md:w-[22rem] md:h-[22rem] relative overflow-hidden flex items-center justify-center bg-white p-3 shadow-2xl">
               <img
                 src={HERO_IMG}
                 alt="Crown Crust pizza"
-                className="w-full h-full object-cover mix-blend-multiply scale-[1.65]"
+                className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
               />
-              
             </div>
             
             <span className="anim-wiggle absolute -right-2 top-2 md:-right-6 md:top-6 z-20 rotate-6 rounded-lg bg-mustard px-3 py-1.5 font-display text-xs text-leaf-ink shadow-card md:text-sm">
