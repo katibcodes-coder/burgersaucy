@@ -301,7 +301,6 @@ function DealCard({ deal, index, onAdd }: { deal: Deal; index: number; onAdd: (d
           ))}
         </ul>
         
-        {/* Image fully visible with object-contain and mix-blend */}
         <div className="mt-4 h-36 w-full overflow-hidden rounded-lg border border-ink/10 flex items-center justify-center bg-white">
           <img
             src={deal.img}
