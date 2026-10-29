@@ -452,7 +452,7 @@ export const INFO = {
   delivery: "Free delivery up to 5 km",
 };
 
-// --- NAYI HERO IMAGE SET KI GAYI HAI ---
-const heroImgKey = Object.keys(images).find(key => key.includes('hero img.'));
-export const HERO_IMG = getImg("pizzas", "1") || (heroImgKey ? images[heroImgKey] : ""); 
-export const HERO_IMG_2 = getImg("pizzas", "1"); 
+// --- NAYI FULL PIZZA HERO IMAGE SET KI GAYI HAI ---
+const fullPizzaKey = Object.keys(images).find(key => key.includes('crown-crust-full.'));
+export const HERO_IMG = fullPizzaKey ? images[fullPizzaKey] : (getImg("pizzas", "1") || ""); 
+export const HERO_IMG_2 = HERO_IMG; 
