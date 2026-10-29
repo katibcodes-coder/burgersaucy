@@ -1,15 +1,13 @@
 /* Burger Saucy — menu data. */
 
-// Images load karne ka function (jfif bhi add hai)
+// Images load karne ka function
 const images = import.meta.glob('../imgs/**/*.{png,jpg,jpeg,jfif,webp,avif}', { eager: true, import: 'default' }) as Record<string, string>;
 
-// Folder aur File ka naam de kar image dhoondhne ka function
 const getImg = (folderName: string, fileName: string) => {
   const found = Object.keys(images).find(key => key.includes(`/${folderName}/${fileName}.`));
   return found ? images[found] : ""; 
 };
 
-// Pexels function (Ab kisi kaam ka nahi hai, par rehne dein taake error na aaye)
 const px = (id: number, w = 800, h = 560, ext: "jpeg" | "png" = "jpeg") =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.${ext}?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${h}`;
 

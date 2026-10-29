@@ -244,12 +244,12 @@ function ItemCard({
             {item.badge}
           </span>
         )}
-        <div className="h-44 overflow-hidden rounded-t-[9px] border-b-2 border-ink/10 bg-cream-100 flex items-center justify-center p-2">
+        <div className="h-44 overflow-hidden rounded-t-[9px] border-b-2 border-ink/10 bg-transparent flex items-center justify-center p-1">
           <img
             src={item.img}
             alt={item.name}
             loading="lazy"
-            className="h-full w-full object-contain transition-transform duration-500"
+            className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
           />
         </div>
         <div className="flex flex-1 flex-col p-4">
@@ -285,9 +285,9 @@ function ItemCard({
 function DealCard({ deal, index, onAdd }: { deal: Deal; index: number; onAdd: (d: Deal) => void }) {
   return (
     <Reveal delay={(index % 2) * 90} className="h-full">
-      <article className="group flex h-full flex-col rounded-xl border-2 border-dashed border-cream-100/45 bg-leaf p-4 text-cream-100 shadow-card-green transition-all duration-300 hover:-translate-y-1 hover:border-cream-100/80">
+      <article className="group flex h-full flex-col rounded-xl border-2 border-dashed border-leaf/45 bg-white p-4 text-leaf-dark shadow-card-green transition-all duration-300 hover:-translate-y-1 hover:border-leaf">
         <div className="flex items-center justify-between gap-2">
-          <span className="font-display tracking-[0.2em] text-mustard">DEAL {deal.no}</span>
+          <span className="font-display tracking-[0.2em] text-tomato">DEAL {deal.no}</span>
           <span className="rounded-md bg-tomato px-2.5 py-1 font-display text-sm tracking-wide text-white shadow-sm">
             {deal.price}rs
           </span>
@@ -295,19 +295,22 @@ function DealCard({ deal, index, onAdd }: { deal: Deal; index: number; onAdd: (d
         <ul className="mt-3 space-y-1.5 text-sm font-extrabold">
           {deal.items.map((it) => (
             <li key={it} className="flex items-start gap-2">
-              <CheckIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-mustard" />
+              <CheckIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-leaf" />
               {it}
             </li>
           ))}
         </ul>
-        <div className="mt-4 h-32 overflow-hidden rounded-lg border border-cream-100/20 bg-cream-100 flex items-center justify-center p-2">
+        
+        {/* Image fully visible with object-contain and mix-blend */}
+        <div className="mt-4 h-36 w-full overflow-hidden rounded-lg border border-ink/10 flex items-center justify-center bg-white">
           <img
             src={deal.img}
             alt={`Deal ${deal.no}`}
             loading="lazy"
-            className="h-full w-full object-contain transition-transform duration-500"
+            className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
           />
         </div>
+
         <button
           onClick={() => onAdd(deal)}
           className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-mustard px-4 py-2.5 font-display tracking-wider text-leaf-ink transition-all hover:bg-mustard-soft active:translate-y-0.5"
@@ -567,23 +570,20 @@ function Hero({ go }: { go: (t: string) => void }) {
           </div>
         </div>
         
-        {/* HERO IMAGE SECTION - FINAL ZOOM FIX */}
+        {/* HERO IMAGE SECTION */}
         <div className="relative mx-auto w-fit mt-8 md:mt-0">
           <div className="anim-float relative flex items-center justify-center">
             
-            {/* Spinning Dashed Border Container */}
-            <div className="anim-spin-slow rounded-full border-[6px] border-dashed border-mustard w-64 h-64 md:w-[22rem] md:h-[22rem] relative overflow-hidden flex items-center justify-center bg-leaf-dark/20 shadow-xl">
+            <div className="anim-spin-slow rounded-full border-[6px] border-dashed border-mustard w-64 h-64 md:w-[22rem] md:h-[22rem] relative overflow-hidden flex items-center justify-center">
               
-              {/* Image zoomed aggressively with scale-[1.8] to completely fill the circle */}
               <img
                 src={HERO_IMG}
                 alt="Crown Crust pizza"
-                className="w-full h-full object-cover mix-blend-multiply scale-[1.8]"
+                className="w-full h-full object-cover mix-blend-multiply scale-[1.65]"
               />
               
             </div>
             
-            {/* Badges */}
             <span className="anim-wiggle absolute -right-2 top-2 md:-right-6 md:top-6 z-20 rotate-6 rounded-lg bg-mustard px-3 py-1.5 font-display text-xs text-leaf-ink shadow-card md:text-sm">
               CROWN CRUST · 1650rs
             </span>
