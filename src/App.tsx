@@ -6,7 +6,6 @@ import {
   TOPPINGS,
   INFO,
   HERO_IMG,
-  HERO_IMG_2,
   type MenuItem,
   type SizePrice,
   type Deal,
@@ -245,12 +244,12 @@ function ItemCard({
             {item.badge}
           </span>
         )}
-        <div className="h-44 overflow-hidden rounded-t-[9px] border-b-2 border-ink/10">
+        <div className="h-44 overflow-hidden rounded-t-[9px] border-b-2 border-ink/10 bg-cream-100 flex items-center justify-center p-2">
           <img
             src={item.img}
             alt={item.name}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-500"
           />
         </div>
         <div className="flex flex-1 flex-col p-4">
@@ -301,12 +300,12 @@ function DealCard({ deal, index, onAdd }: { deal: Deal; index: number; onAdd: (d
             </li>
           ))}
         </ul>
-        <div className="mt-4 h-32 overflow-hidden rounded-lg border border-cream-100/20">
+        <div className="mt-4 h-32 overflow-hidden rounded-lg border border-cream-100/20 bg-cream-100 flex items-center justify-center p-2">
           <img
             src={deal.img}
             alt={`Deal ${deal.no}`}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-500"
           />
         </div>
         <button
@@ -567,26 +566,31 @@ function Hero({ go }: { go: (t: string) => void }) {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto w-fit">
-          <div className="anim-float relative">
-            <div className="anim-spin-slow rounded-full border-4 border-dashed border-mustard/70 p-4 md:p-6">
+        
+        {/* HERO IMAGE SECTION - FINAL ZOOM FIX */}
+        <div className="relative mx-auto w-fit mt-8 md:mt-0">
+          <div className="anim-float relative flex items-center justify-center">
+            
+            {/* Spinning Dashed Border Container */}
+            <div className="anim-spin-slow rounded-full border-[6px] border-dashed border-mustard w-64 h-64 md:w-[22rem] md:h-[22rem] relative overflow-hidden flex items-center justify-center bg-leaf-dark/20 shadow-xl">
+              
+              {/* Image zoomed aggressively with scale-[1.8] to completely fill the circle */}
               <img
                 src={HERO_IMG}
                 alt="Crown Crust pizza"
-                className="h-60 w-60 rounded-full object-cover shadow-2xl md:h-80 md:w-80"
+                className="w-full h-full object-cover mix-blend-multiply scale-[1.8]"
               />
+              
             </div>
-            <span className="anim-wiggle absolute -right-4 top-4 rotate-6 rounded-lg bg-mustard px-3 py-1.5 font-display text-xs text-leaf-ink shadow-card md:text-sm">
+            
+            {/* Badges */}
+            <span className="anim-wiggle absolute -right-2 top-2 md:-right-6 md:top-6 z-20 rotate-6 rounded-lg bg-mustard px-3 py-1.5 font-display text-xs text-leaf-ink shadow-card md:text-sm">
               CROWN CRUST · 1650rs
             </span>
-            <span className="absolute -left-4 bottom-12 -rotate-6 rounded-lg bg-tomato px-3 py-1.5 font-display text-xs text-white shadow-card md:text-sm">
+            <span className="absolute -left-2 bottom-4 md:-left-6 md:bottom-10 z-20 -rotate-6 rounded-lg bg-tomato px-3 py-1.5 font-display text-xs text-white shadow-card md:text-sm">
               DELIVERY · 5 KM FREE
             </span>
-            <img
-              src={HERO_IMG_2}
-              alt="Wehshi Burger"
-              className="anim-float-slow absolute -bottom-10 -left-14 hidden w-40 -rotate-6 rounded-xl border-4 border-cream-100/25 object-cover shadow-xl lg:block"
-            />
+            
           </div>
         </div>
       </div>
